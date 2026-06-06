@@ -142,6 +142,79 @@ li::before { content: '✓'; position: absolute; left: 0; top: 0; font-weight: 8
 footer { width: min(1320px, calc(100% - 72px)); margin: 0 auto; padding: 32px 0 46px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 22px; color: var(--muted); }
 footer a { color: var(--ink); font-weight: 800; }
 
+/* Motion system: restrained, tactile, premium */
+.nav, .logo, .logo img, .nav-links a, .nav-action, .button,
+.hero-visual, .hero-stamp, .red-plane, .hero-points span,
+.section-title span::after, .adv-card, .icon-wrap, .icon-wrap img,
+.check-card, .check-card img, .steps-head img, .step, .step span,
+.tariff-card, .tariff-img, .price, .time-card b, .contact-card,
+.contact-card a, .contact-card a img, .person img, footer a {
+  transition:
+    transform .28s cubic-bezier(.2,.8,.2,1),
+    box-shadow .28s cubic-bezier(.2,.8,.2,1),
+    filter .28s ease,
+    background .28s ease,
+    border-color .28s ease,
+    color .2s ease,
+    opacity .28s ease;
+}
+
+.nav:hover { transform: translateY(-2px); box-shadow: 0 22px 58px rgba(0,0,0,.10); }
+.logo:hover { transform: translateY(-1px); }
+.logo:hover img { transform: scale(1.025); }
+.nav-links a:hover { transform: translateY(-1px); }
+.nav-action:hover, .button:hover { transform: translateY(-3px); box-shadow: 0 20px 44px rgba(0,0,0,.14); }
+.button.red:hover { box-shadow: 0 24px 48px rgba(223,22,27,.30); }
+.nav-action:active, .button:active { transform: translateY(0) scale(.98); }
+
+.hero-visual:hover { transform: translateY(-8px); }
+.hero-visual:hover .hero-stamp { transform: scale(1.18) translateY(-5px) rotate(.35deg); filter: saturate(1.13) contrast(1.02); }
+.hero-visual:hover .red-plane { transform: skewX(-27deg) rotate(4deg) translateY(-8px); opacity: .12; }
+.hero-points span:hover { transform: translateX(5px); }
+.hero-points span:hover::before { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(223,22,27,.10); }
+.hero-points span::before { transition: transform .25s ease, box-shadow .25s ease; }
+
+.section-title:hover span::after, .steps-head:hover img { transform: rotate(-10deg) scale(1.04); }
+.adv-card:hover, .check-card:hover, .step:hover, .tariff-card:hover, .contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 70px rgba(0,0,0,.11);
+}
+.adv-card.dark:hover, .check-card.black:hover, .tariff-card.dark:hover { box-shadow: 0 30px 78px rgba(0,0,0,.22); }
+.adv-card:hover .icon-wrap { transform: rotate(-4deg) scale(1.03); }
+.adv-card:hover .icon-wrap img, .check-card:hover img, .tariff-card:hover .tariff-img { transform: translateY(-7px) rotate(2deg) scale(1.04); filter: drop-shadow(0 24px 26px rgba(0,0,0,.18)); }
+.check-card.black:hover img { transform: translateY(-8px) rotate(-2deg) scale(1.04); }
+.step:hover span { transform: scale(1.12); box-shadow: 0 0 0 5px rgba(223,22,27,.18); }
+.tariff-card:hover .price { transform: translateX(-50%) translateY(-4px) scale(1.03); }
+.time-card:hover b { transform: translateY(-3px); background: #ececec; }
+.contact-card a:hover { transform: translateX(5px); color: var(--red); }
+.contact-card a:hover img { transform: rotate(-8deg) scale(1.08); }
+.person:hover img { transform: translateY(-6px) scale(1.015); filter: drop-shadow(0 36px 48px rgba(0,0,0,.20)); }
+footer a:hover { transform: translateY(-2px); color: var(--red); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stamp { animation: stamp-breathe 7s ease-in-out infinite; }
+  .tariff-img { animation: float-soft 6.8s ease-in-out infinite; }
+  .tariff-card.light-card .tariff-img { animation-delay: .7s; }
+  .steps-head img { animation: logo-orbit 8s ease-in-out infinite; }
+}
+
+@keyframes stamp-breathe {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+@keyframes float-soft {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+@keyframes logo-orbit {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: -6deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
 @media (max-width: 1120px) {
   .hero, .check-grid, .tariff-grid, .start { grid-template-columns: 1fr; }
   .hero-visual { min-height: 520px; }
@@ -183,6 +256,7 @@ footer a { color: var(--ink); font-weight: 800; }
   .tariff-card { padding: 125px 24px 44px; border-radius: 28px; }
   .tariff-img { width: 170px; height: 170px; top: -54px; }
   .price { position: relative; left: auto; bottom: auto; transform: none; display: block; min-width: 0; margin-top: 28px; }
+  .tariff-card:hover .price { transform: translateY(-4px) scale(1.03); }
   .start { min-height: auto; }
   .start h2 { margin-bottom: 30px; }
   .start-copy p, .contact-card p { font-size: 22px; }
