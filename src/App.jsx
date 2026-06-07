@@ -30,6 +30,18 @@ const tariffItems = [
   'Гарантия регистрации',
 ]
 
+const guaranteeItems = [
+  ['Фиксируем цену', 'Стоимость и объём работ прописаны в договоре до старта.'],
+  ['Закрепляем право', 'Подаём заявку и закрепляем приоритет в течение 1 рабочего дня.'],
+  ['Ведём до решения', 'Сопровождаем переписку с Роспатентом и отвечаем на уведомления.'],
+]
+
+const faq = [
+  ['Что значит гарантия по договору?', 'Мы письменно фиксируем обещания, сроки действий и условия сопровождения — без устных договорённостей.'],
+  ['Можно ли сначала проверить знак?', 'Да. Перед договором бесплатно проверим знак и покажем риски регистрации.'],
+  ['От чего зависит срок?', 'От выбранного тарифа и процедуры Роспатента: ускоренный маршрут обычно занимает 2–3 месяца, стандартный — 6–10 месяцев.'],
+]
+
 function Logo({ compact = false }) {
   return (
     <a className={compact ? 'logo compact' : 'logo'} href="#top" aria-label="Favicon">
@@ -114,6 +126,24 @@ function App() {
         </div>
       </section>
 
+      <section className="section guarantee" id="guarantee">
+        <div className="guarantee-panel">
+          <div>
+            <p className="guarantee-kicker">Гарантия</p>
+            <h2>Что именно закрепляем в договоре?</h2>
+          </div>
+          <div className="guarantee-list">
+            {guaranteeItems.map(([title, text], index) => (
+              <article key={title}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section steps" id="steps">
         <div className="steps-head">
           <img src={`${A}masked-p4-1.png`} alt="C" />
@@ -153,6 +183,21 @@ function App() {
             <strong className="price">35 000 ₽</strong>
           </article>
           <aside className="time-card standard"><b>6–10</b><span>месяцев</span></aside>
+        </div>
+      </section>
+
+      <section className="section faq" id="faq">
+        <div className="section-title faq-title">
+          <h2>Вопросы</h2>
+          <p>Коротко о том, что обычно уточняют перед стартом.</p>
+        </div>
+        <div className="faq-grid">
+          {faq.map(([question, answer]) => (
+            <article key={question}>
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </article>
+          ))}
         </div>
       </section>
 
