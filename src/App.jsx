@@ -231,7 +231,7 @@ function App() {
           <p>Мы составим договор и пришлём вам на подпись.</p>
           <Logo compact />
         </div>
-        <div className="person"><img src={`${A}consultant-young.jpeg`} alt="Елена, консультирующий менеджер" /></div>
+        <div className="person"><img src={`${A}consultant-young.png`} alt="Елена, консультирующий менеджер" /></div>
         <div className="contact-card">
           <h3>Елена</h3>
           <p>Консультирующий менеджер</p>
