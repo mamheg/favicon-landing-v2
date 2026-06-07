@@ -34,9 +34,9 @@ main { overflow: hidden; }
   padding: 3px 10px; border: 1px solid rgba(0,0,0,.08); border-radius: 999px;
   background: rgba(255,255,255,.92); backdrop-filter: blur(18px); box-shadow: 0 12px 34px rgba(0,0,0,.055);
 }
-.logo { display: inline-flex; align-items: center; width: 140px; }
-.logo.compact { width: 78px; }
-.logo img { width: 100%; max-height: 26px; height: auto; object-fit: contain; }
+.logo { display: inline-flex; align-items: center; width: 150px; }
+.logo.compact { width: 112px; }
+.logo img { width: 100%; max-height: 34px; height: auto; object-fit: contain; }
 .nav-links { display: flex; align-items: center; gap: 3px; font-size: 14px; color: #595959; }
 .nav-links a { padding: 5px 9px; border-radius: 999px; transition: background .2s, color .2s; }
 .nav-links a:hover { color: var(--ink); background: #f1f1f1; }
@@ -230,9 +230,6 @@ li::before { content: '✓'; position: absolute; left: 0; top: 0; font-weight: 8
 .contact-card a { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 16px; font-weight: 700; }
 .contact-card a img { width: 22px; height: 22px; object-fit: contain; }
 
-footer { width: min(1320px, calc(100% - 72px)); margin: 0 auto; padding: 24px 0 32px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); font-size: 14px; }
-footer a { color: var(--ink); font-weight: 800; }
-
 /* Motion system: restrained, tactile, premium */
 .nav, .logo, .logo img, .nav-links a, .nav-action, .button,
 .hero-visual, .hero-stamp, .red-plane, .hero-points span,
@@ -240,7 +237,7 @@ footer a { color: var(--ink); font-weight: 800; }
 .check-card, .check-card img, .steps-head img, .step, .step span,
 .tariff-card, .tariff-img, .price, .time-card b, .guarantee-panel,
 .guarantee-list article, .guarantee-list span, .faq-grid article, .contact-card,
-.contact-card a, .contact-card a img, .person img, footer a {
+.contact-card a, .contact-card a img, .person img {
   transition:
     transform .28s cubic-bezier(.2,.8,.2,1),
     box-shadow .28s cubic-bezier(.2,.8,.2,1),
@@ -281,7 +278,6 @@ footer a { color: var(--ink); font-weight: 800; }
 .contact-card a:hover { transform: translateX(5px); color: var(--red); }
 .contact-card a:hover img { transform: rotate(-8deg) scale(1.08); }
 .person:hover img { transform: translateY(-6px) scale(1.015); filter: drop-shadow(0 36px 48px rgba(0,0,0,.20)); }
-footer a:hover { transform: translateY(-2px); color: var(--red); }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-stamp { animation: stamp-breathe 7s ease-in-out infinite; }
@@ -331,12 +327,12 @@ footer a:hover { transform: translateY(-2px); color: var(--red); }
 }
 
 @media (max-width: 720px) {
-  .section, .nav, footer { width: min(100% - 28px, 1320px); }
+  .section, .nav { width: min(100% - 28px, 1320px); }
   .section { padding: 40px 0; }
   .nav { top: 7px; margin-top: 7px; min-height: 40px; padding: 2px 8px; }
   .nav-links { display: none; }
-  .logo, .logo.compact { width: 72px; }
-  .logo img { max-height: 22px; }
+  .logo, .logo.compact { width: 96px; }
+  .logo img { max-height: 30px; }
   .nav-action { min-height: 28px; padding: 0 12px; font-size: 12px; }
   .scroll-top { right: 12px; bottom: 12px; width: 38px; height: 38px; font-size: 19px; box-shadow: 0 12px 26px rgba(223,22,27,.25); }
   .hero-copy .logo { margin-bottom: 30px; }
@@ -393,5 +389,4 @@ footer a:hover { transform: translateY(-2px); color: var(--red); }
   .contact-card h3 { font-size: 24px; margin-bottom: 6px; }
   .contact-card a { font-size: 14px; }
   .person img { width: min(280px, 88vw); max-height: 360px; }
-  footer { flex-direction: column; align-items: flex-start; gap: 12px; }
 }

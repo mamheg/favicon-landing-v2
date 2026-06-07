@@ -241,12 +241,6 @@ function App() {
         </div>
       </section>
 
-      <footer>
-        <Logo compact />
-        <span>Регистрация товарных знаков · гарантия по договору</span>
-        <a href="https://t.me/FaviconTM">Связаться</a>
-      </footer>
-
       <a className={showScrollTop ? 'scroll-top visible' : 'scroll-top'} href="#top" aria-label="Прокрутить наверх">
         ↑
       </a>
