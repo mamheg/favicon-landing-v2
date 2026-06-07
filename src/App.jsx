@@ -66,7 +66,6 @@ function App() {
 
       <section className="hero section">
         <div className="hero-copy">
-          <Logo />
           <p className="kicker">регистрация товарного знака</p>
           <h1>Регистрация вашего товарного знака с гарантией по договору</h1>
           <div className="hero-points">
@@ -136,8 +135,10 @@ function App() {
             {guaranteeItems.map(([title, text], index) => (
               <article key={title}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
               </article>
             ))}
           </div>
