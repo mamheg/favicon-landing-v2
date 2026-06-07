@@ -64,8 +64,8 @@ h3 { font-size: 20px; line-height: 1.06; letter-spacing: -.04em; }
 .section-title p, .check-heading p, .steps-head p { color: #1d1d1d; font-size: clamp(16px, 1.8vw, 20px); line-height: 1; letter-spacing: -.03em; }
 .section-title.wide { display: block; }
 .section-title.wide p { margin-bottom: 8px; }
-.section-title span { position: relative; display: inline-flex; align-items: center; gap: 14px; letter-spacing: .17em; text-transform: uppercase; font-size: 14px; }
-.section-title span::after { content: ''; width: 70px; height: 70px; border: 6px solid var(--red); border-left-color: transparent; border-right-color: transparent; border-radius: 50%; }
+.advantages h2 { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.title-logo { display: inline-block; width: 88px; height: auto; transform: translateY(0); }
 
 .advantage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .adv-card { min-height: 110px; display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 14px; padding: 14px; border-radius: 16px; background: var(--soft); box-shadow: inset 0 0 0 1px rgba(0,0,0,.02); }

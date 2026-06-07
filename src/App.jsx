@@ -88,7 +88,10 @@ function App() {
       <section className="section advantages" id="advantages">
         <div className="section-title wide">
           <p>Преимущества</p>
-          <h2>6 причин работать с <span>Favicon</span></h2>
+          <h2>
+            6 причин работать с
+            <img className="title-logo" src={`${A}masked-p1-2.png`} alt="Favicon" />
+          </h2>
         </div>
         <div className="advantage-grid">
           {advantages.map((item) => (
