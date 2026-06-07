@@ -286,7 +286,7 @@ footer a:hover { transform: translateY(-2px); color: var(--red); }
   .hero, .check-grid, .tariff-grid, .start, .guarantee-panel { grid-template-columns: 1fr; }
   .hero-visual { min-height: 420px; }
   .advantage-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
-  .step-line { display: grid; min-height: auto; gap: 16px; }
+  .step-line { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: auto; gap: 16px; padding-top: 0; }
   .step-line::before { display: none; }
   .step, .step:nth-child(n) { position: relative; inset: auto; width: auto; min-height: 0; padding: 22px 22px 22px 64px; border-radius: 20px; background: var(--soft); }
   .step span { left: 20px; top: 22px; display: grid; place-items: center; width: 28px; height: 28px; color: #fff; font-size: 12px; box-shadow: none; }
@@ -325,6 +325,27 @@ footer a:hover { transform: translateY(-2px); color: var(--red); }
   .guarantee-list p, .faq-grid p { font-size: 13px; }
   .faq-grid article { min-height: 0; padding: 18px; border-radius: 16px; }
   .steps-head img { width: 50px; height: 50px; }
+  .steps { padding-top: 34px; }
+  .steps-head { align-items: center; gap: 12px; margin-bottom: 18px; }
+  .step-line { grid-template-columns: 1fr; gap: 10px; padding-top: 0; }
+  .step, .step:nth-child(n) {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    column-gap: 12px;
+    align-items: start;
+    padding: 14px;
+    border-radius: 16px;
+    background: var(--soft);
+  }
+  .step span {
+    position: static;
+    width: 30px;
+    height: 30px;
+    margin-top: 1px;
+    box-shadow: 0 0 0 3px #777;
+  }
+  .step h3 { grid-column: 2; margin: 0 0 5px; font-size: 16px; line-height: 1.1; }
+  .step p { grid-column: 2; margin: 0; font-size: 13px; line-height: 1.32; }
   .tariff-card { padding: 70px 16px 24px; border-radius: 16px; margin-top: 30px; }
   .tariff-img { width: 90px; height: 90px; top: -30px; }
   .price { position: relative; left: auto; bottom: auto; transform: none; display: block; min-width: 0; margin-top: 20px; font-size: 18px; }
