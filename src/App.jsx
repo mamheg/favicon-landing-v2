@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const A = '/assets/'
@@ -51,6 +52,24 @@ function Logo({ compact = false }) {
 }
 
 function App() {
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    const updateScrollTop = () => {
+      const hero = document.querySelector('.hero')
+      const trigger = hero ? hero.offsetTop + hero.offsetHeight - 80 : window.innerHeight * 0.8
+      setShowScrollTop(window.scrollY > trigger)
+    }
+
+    updateScrollTop()
+    window.addEventListener('scroll', updateScrollTop, { passive: true })
+    window.addEventListener('resize', updateScrollTop)
+    return () => {
+      window.removeEventListener('scroll', updateScrollTop)
+      window.removeEventListener('resize', updateScrollTop)
+    }
+  }, [])
+
   return (
     <main id="top">
       <nav className="nav" aria-label="Главная навигация">
@@ -212,7 +231,7 @@ function App() {
           <p>Мы составим договор и пришлём вам на подпись.</p>
           <Logo compact />
         </div>
-        <div className="person"><img src={`${A}masked-p6-2.png`} alt="Елена, консультирующий менеджер" /></div>
+        <div className="person"><img src={`${A}consultant-young.jpeg`} alt="Елена, консультирующий менеджер" /></div>
         <div className="contact-card">
           <h3>Елена</h3>
           <p>Консультирующий менеджер</p>
@@ -228,7 +247,7 @@ function App() {
         <a href="https://t.me/FaviconTM">Связаться</a>
       </footer>
 
-      <a className="scroll-top" href="#top" aria-label="Прокрутить наверх">
+      <a className={showScrollTop ? 'scroll-top visible' : 'scroll-top'} href="#top" aria-label="Прокрутить наверх">
         ↑
       </a>
     </main>
