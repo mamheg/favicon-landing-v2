@@ -227,6 +227,10 @@ function App() {
         <span>Регистрация товарных знаков · гарантия по договору</span>
         <a href="https://t.me/FaviconTM">Связаться</a>
       </footer>
+
+      <a className="scroll-top" href="#top" aria-label="Прокрутить наверх">
+        ↑
+      </a>
     </main>
   )
 }
